@@ -1,3 +1,10 @@
+FROM node:20-alpine AS web
+WORKDIR /web
+COPY web/package*.json ./
+RUN npm ci
+COPY web/ ./
+RUN npm run build
+
 FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -10,6 +17,7 @@ COPY pyproject.toml README.md ./
 COPY app ./app
 COPY ui ./ui
 COPY data ./data
+COPY --from=web /web/dist ./web/dist
 
 RUN pip install --upgrade pip && pip install .
 

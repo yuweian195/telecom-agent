@@ -7,9 +7,10 @@ from typing import Annotated
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
 
-from app.config import get_settings
+from app.config import BASE_DIR, get_settings
 from app.db import get_repository
 from app.schemas import (
     Alarm,
@@ -113,3 +114,13 @@ def get_run_report(run_id: str) -> PlainTextResponse:
         media_type="text/markdown; charset=utf-8",
         headers={"Content-Disposition": f'attachment; filename="noc-{run_id}.md"'},
     )
+
+
+# TypeScript NOC wallboard (built with `npm run build`).
+WALLBOARD_DIST = BASE_DIR / "web" / "dist"
+if WALLBOARD_DIST.exists():
+    app.mount("/wallboard", StaticFiles(directory=WALLBOARD_DIST, html=True), name="wallboard")
+
+    @app.get("/", include_in_schema=False)
+    def wallboard_root() -> RedirectResponse:
+        return RedirectResponse(url="/wallboard/")

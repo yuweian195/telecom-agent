@@ -149,7 +149,27 @@ FastAPI ────────┘                              └── SQLit
 - **案例库扩容**：替换 `cases.jsonl`；如需向量召回，实现 `CaseRetriever.search()` 相同返回结构。
 - **替换存储**：实现 `OpsRepository` 方法集，业务层不改。
 
-## 9. 部署
+## 9. TypeScript NOC 大屏
+
+`web/` 是独立的 Vite + React 19 + TypeScript 应用：
+
+- `src/api.ts` 拉取 `/ops/runs?limit=1` 与最新 run 详情；
+- `src/App.tsx` 渲染 KPI、事件队列、拓扑和派单；
+- 每 20 秒自动刷新，适合值班室大屏；
+- Vite `base` 为 `/wallboard/`；
+- `npm run build` 生成 `web/dist`，FastAPI 将其挂载到 `/wallboard`；
+- Docker 构建阶段使用 Node 20 构建，再复制 `dist` 到 Python 镜像；
+- CI 增加 `npm ci && npm run build` 检查。
+
+开发模式：
+
+```bash
+cd web
+npm run dev
+# http://127.0.0.1:5173/wallboard/
+```
+
+## 10. 部署
 
 - 单机：`streamlit run ui/streamlit_app.py` + `uvicorn app.main:app`。
 - 容器：`docker compose up --build`，API 8000，UI 8501。

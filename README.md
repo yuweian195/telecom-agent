@@ -6,6 +6,8 @@
 ![LangGraph](https://img.shields.io/badge/Agent-LangGraph-1C3C3C)
 ![FastAPI](https://img.shields.io/badge/API-FastAPI-009688)
 ![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B)
+![TypeScript](https://img.shields.io/badge/Frontend-TypeScript-3178C6)
+![React](https://img.shields.io/badge/React-19-61DAFB)
 
 面向电信网络运维的告警分析 Agent。输入一天的原始告警，系统会按拓扑与时间窗压缩告警、定位根因、计算影响面、匹配历史案例并生成派单建议；低置信度事件自动转人工复核。
 
@@ -15,7 +17,9 @@
 
 <p align="center"><a href="docs/screenshots/topology-view.png"><img src="docs/screenshots/topology-view.png" alt="拓扑视图" width="900"></a></p>
 
-<p align="center"><a href="docs/screenshots/noc-overview.png">查看 NOC 总览原图</a> · <a href="docs/screenshots/topology-view.png">查看拓扑视图原图</a></p>
+<p align="center"><a href="docs/screenshots/noc-wallboard.png"><img src="docs/screenshots/noc-wallboard.png" alt="TypeScript NOC 大屏" width="900"></a></p>
+
+<p align="center"><a href="docs/screenshots/noc-overview.png">查看 NOC 总览原图</a> · <a href="docs/screenshots/topology-view.png">查看拓扑视图原图</a> · <a href="docs/screenshots/noc-wallboard.png">查看 TypeScript 大屏原图</a></p>
 
 > 告警、拓扑与案例均为合成数据，用于工程评估；处置步骤需结合现场确认，不构成实际操作指令。
 
@@ -37,7 +41,8 @@ TelecomAgent 用“拓扑 + 时间窗 + 规则 + 案例”做压缩和定位，L
 - **置信度与人工复核**：低置信度或未归类的 P1/P2 事件自动进入人工复核分支。
 - **案例检索**：按症状与根因类型匹配历史故障案例，返回处置步骤。
 - **派单建议**：按严重度与时间排序，生成“先做什么”的处置清单。
-- **NOC 值班台**：深色控制台、告警事件队列、拓扑视图、案例库、历史记录。
+- **NOC 值班台**：Streamlit 深色控制台，包含告警分析、拓扑视图、案例库与历史记录。
+- **TypeScript NOC 大屏**：React + Vite 只读大屏，自动刷新最新分析结果，适合值班室展示。
 - **完整工程化**：FastAPI、SQLite、pytest、Ruff、Docker Compose、GitHub Actions。
 
 ## 架构
@@ -129,6 +134,18 @@ streamlit run ui/streamlit_app.py
 
 浏览器打开 `http://localhost:8501`。
 
+TypeScript NOC 大屏：
+
+```bash
+cd web
+npm install
+npm run build
+cd ..
+uvicorn app.main:app --reload
+```
+
+打开 `http://127.0.0.1:8000/wallboard/`。开发模式可运行 `npm run dev`（默认连接 `http://127.0.0.1:8000`）。
+
 单独启动 API：
 
 ```bash
@@ -204,7 +221,12 @@ telecom-agent/
 ├── scripts/
 │   ├── generate_sample_data.py
 │   └── evaluate.py
-├── tests/                      # 21 个测试
+├── web/                        # TypeScript + React NOC 大屏
+│   ├── src/App.tsx
+│   ├── src/api.ts
+│   ├── src/styles.css
+│   └── package.json
+├── tests/                      # 21 个 Python 测试
 ├── reports/evaluation.md
 ├── docs/architecture.md
 ├── Dockerfile
@@ -218,11 +240,12 @@ telecom-agent/
 - **先压缩再诊断**：直接在 223 条告警上做诊断既慢又噪声大；拓扑 + 时间窗先收敛到事件。
 - **案例检索用 Jaccard 而非向量**：案例是短症状签名，Jaccard 可解释且零依赖；向量召回留给更大规模案例库。
 - **低置信度必须转人工**：运维场景里“不确定”比“猜一个”更安全；未归类 P1/P2 自动进入复核。
+- **双前端分工**：Streamlit 负责操作与调试，React/TypeScript 大屏负责值班室展示；两者共用 FastAPI。
 - **SQLite 单机存储**：便于本地运行与部署；仓储层隔离，替换 PostgreSQL 不影响业务逻辑。
 
 ## 项目状态
 
-当前版本为完整可运行的单机实现：告警接入、拓扑压缩、根因定位、影响面计算、案例检索、派单与人工复核分支均已落地，测试与 CI 均已通过，仓库中的功能可直接运行。
+当前版本为完整可运行的实现：Python 服务负责告警接入、拓扑压缩、根因定位与派单；TypeScript/React 大屏负责值班展示。两套构建与 CI 均已通过，仓库中的功能可直接运行。
 
 ## 说明
 
