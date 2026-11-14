@@ -1,0 +1,992 @@
+{
+  "nodes": [
+    {
+      "id": "CORE-HZ-01",
+      "name": "杭州核心网 MSC-01",
+      "type": "CORE",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "CORE-NB-01",
+      "name": "宁波核心网 MSC-01",
+      "type": "CORE",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "TX-HZ-05",
+      "name": "杭州城西传输环-05",
+      "type": "TRANSPORT",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "TX-HZ-06",
+      "name": "杭州城东传输环-06",
+      "type": "TRANSPORT",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "TX-NB-03",
+      "name": "宁波北仑传输环-03",
+      "type": "TRANSPORT",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "TX-WZ-02",
+      "name": "温州瓯海传输环-02",
+      "type": "TRANSPORT",
+      "region": "温州",
+      "vendor": "FiberHome"
+    },
+    {
+      "id": "OLT-HZ-01",
+      "name": "杭州城西 OLT-01",
+      "type": "OLT",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "OLT-HZ-02",
+      "name": "杭州城西 OLT-02",
+      "type": "OLT",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "OLT-HZ-03",
+      "name": "杭州城东 OLT-03",
+      "type": "OLT",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "OLT-HZ-04",
+      "name": "杭州城东 OLT-04",
+      "type": "OLT",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "OLT-NB-01",
+      "name": "宁波北仑 OLT-01",
+      "type": "OLT",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "OLT-NB-02",
+      "name": "宁波北仑 OLT-02",
+      "type": "OLT",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "OLT-WZ-01",
+      "name": "温州瓯海 OLT-01",
+      "type": "OLT",
+      "region": "温州",
+      "vendor": "FiberHome"
+    },
+    {
+      "id": "BS-HZ-101",
+      "name": "杭州基站 101",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-102",
+      "name": "杭州基站 102",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-103",
+      "name": "杭州基站 103",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-104",
+      "name": "杭州基站 104",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-105",
+      "name": "杭州基站 105",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-106",
+      "name": "杭州基站 106",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-107",
+      "name": "杭州基站 107",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-108",
+      "name": "杭州基站 108",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-109",
+      "name": "杭州基站 109",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-110",
+      "name": "杭州基站 110",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-111",
+      "name": "杭州基站 111",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-112",
+      "name": "杭州基站 112",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-113",
+      "name": "杭州基站 113",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-114",
+      "name": "杭州基站 114",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-115",
+      "name": "杭州基站 115",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-116",
+      "name": "杭州基站 116",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-117",
+      "name": "杭州基站 117",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-118",
+      "name": "杭州基站 118",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-119",
+      "name": "杭州基站 119",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-120",
+      "name": "杭州基站 120",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-121",
+      "name": "杭州基站 121",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-122",
+      "name": "杭州基站 122",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-123",
+      "name": "杭州基站 123",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-124",
+      "name": "杭州基站 124",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-125",
+      "name": "杭州基站 125",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-126",
+      "name": "杭州基站 126",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-127",
+      "name": "杭州基站 127",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-128",
+      "name": "杭州基站 128",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-129",
+      "name": "杭州基站 129",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-130",
+      "name": "杭州基站 130",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-131",
+      "name": "杭州基站 131",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-132",
+      "name": "杭州基站 132",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-133",
+      "name": "杭州基站 133",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-134",
+      "name": "杭州基站 134",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-135",
+      "name": "杭州基站 135",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-136",
+      "name": "杭州基站 136",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-137",
+      "name": "杭州基站 137",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-138",
+      "name": "杭州基站 138",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-139",
+      "name": "杭州基站 139",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-HZ-140",
+      "name": "杭州基站 140",
+      "type": "BASE_STATION",
+      "region": "杭州",
+      "vendor": "Huawei"
+    },
+    {
+      "id": "BS-NB-101",
+      "name": "宁波基站 101",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-102",
+      "name": "宁波基站 102",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-103",
+      "name": "宁波基站 103",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-104",
+      "name": "宁波基站 104",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-105",
+      "name": "宁波基站 105",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-106",
+      "name": "宁波基站 106",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-107",
+      "name": "宁波基站 107",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-108",
+      "name": "宁波基站 108",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-109",
+      "name": "宁波基站 109",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-110",
+      "name": "宁波基站 110",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-111",
+      "name": "宁波基站 111",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-112",
+      "name": "宁波基站 112",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-113",
+      "name": "宁波基站 113",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-114",
+      "name": "宁波基站 114",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-115",
+      "name": "宁波基站 115",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-116",
+      "name": "宁波基站 116",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-117",
+      "name": "宁波基站 117",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-118",
+      "name": "宁波基站 118",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-119",
+      "name": "宁波基站 119",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-NB-120",
+      "name": "宁波基站 120",
+      "type": "BASE_STATION",
+      "region": "宁波",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-WZ-101",
+      "name": "温州基站 101",
+      "type": "BASE_STATION",
+      "region": "温州",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-WZ-102",
+      "name": "温州基站 102",
+      "type": "BASE_STATION",
+      "region": "温州",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-WZ-103",
+      "name": "温州基站 103",
+      "type": "BASE_STATION",
+      "region": "温州",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-WZ-104",
+      "name": "温州基站 104",
+      "type": "BASE_STATION",
+      "region": "温州",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-WZ-105",
+      "name": "温州基站 105",
+      "type": "BASE_STATION",
+      "region": "温州",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-WZ-106",
+      "name": "温州基站 106",
+      "type": "BASE_STATION",
+      "region": "温州",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-WZ-107",
+      "name": "温州基站 107",
+      "type": "BASE_STATION",
+      "region": "温州",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-WZ-108",
+      "name": "温州基站 108",
+      "type": "BASE_STATION",
+      "region": "温州",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-WZ-109",
+      "name": "温州基站 109",
+      "type": "BASE_STATION",
+      "region": "温州",
+      "vendor": "ZTE"
+    },
+    {
+      "id": "BS-WZ-110",
+      "name": "温州基站 110",
+      "type": "BASE_STATION",
+      "region": "温州",
+      "vendor": "ZTE"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CORE-HZ-01",
+      "target": "TX-HZ-05",
+      "relation": "backbone"
+    },
+    {
+      "source": "CORE-HZ-01",
+      "target": "TX-HZ-06",
+      "relation": "backbone"
+    },
+    {
+      "source": "CORE-HZ-01",
+      "target": "TX-WZ-02",
+      "relation": "backbone"
+    },
+    {
+      "source": "CORE-NB-01",
+      "target": "TX-NB-03",
+      "relation": "backbone"
+    },
+    {
+      "source": "TX-HZ-05",
+      "target": "OLT-HZ-01",
+      "relation": "uplink"
+    },
+    {
+      "source": "TX-HZ-05",
+      "target": "OLT-HZ-02",
+      "relation": "uplink"
+    },
+    {
+      "source": "TX-HZ-06",
+      "target": "OLT-HZ-03",
+      "relation": "uplink"
+    },
+    {
+      "source": "TX-HZ-06",
+      "target": "OLT-HZ-04",
+      "relation": "uplink"
+    },
+    {
+      "source": "TX-NB-03",
+      "target": "OLT-NB-01",
+      "relation": "uplink"
+    },
+    {
+      "source": "TX-NB-03",
+      "target": "OLT-NB-02",
+      "relation": "uplink"
+    },
+    {
+      "source": "TX-WZ-02",
+      "target": "OLT-WZ-01",
+      "relation": "uplink"
+    },
+    {
+      "source": "OLT-HZ-01",
+      "target": "BS-HZ-101",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-01",
+      "target": "BS-HZ-102",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-01",
+      "target": "BS-HZ-103",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-01",
+      "target": "BS-HZ-104",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-01",
+      "target": "BS-HZ-105",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-01",
+      "target": "BS-HZ-106",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-01",
+      "target": "BS-HZ-107",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-01",
+      "target": "BS-HZ-108",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-01",
+      "target": "BS-HZ-109",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-01",
+      "target": "BS-HZ-110",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-02",
+      "target": "BS-HZ-111",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-02",
+      "target": "BS-HZ-112",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-02",
+      "target": "BS-HZ-113",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-02",
+      "target": "BS-HZ-114",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-02",
+      "target": "BS-HZ-115",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-02",
+      "target": "BS-HZ-116",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-02",
+      "target": "BS-HZ-117",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-02",
+      "target": "BS-HZ-118",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-02",
+      "target": "BS-HZ-119",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-02",
+      "target": "BS-HZ-120",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-03",
+      "target": "BS-HZ-121",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-03",
+      "target": "BS-HZ-122",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-03",
+      "target": "BS-HZ-123",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-03",
+      "target": "BS-HZ-124",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-03",
+      "target": "BS-HZ-125",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-03",
+      "target": "BS-HZ-126",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-03",
+      "target": "BS-HZ-127",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-03",
+      "target": "BS-HZ-128",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-03",
+      "target": "BS-HZ-129",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-03",
+      "target": "BS-HZ-130",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-04",
+      "target": "BS-HZ-131",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-04",
+      "target": "BS-HZ-132",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-04",
+      "target": "BS-HZ-133",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-04",
+      "target": "BS-HZ-134",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-04",
+      "target": "BS-HZ-135",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-04",
+      "target": "BS-HZ-136",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-04",
+      "target": "BS-HZ-137",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-04",
+      "target": "BS-HZ-138",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-04",
+      "target": "BS-HZ-139",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-HZ-04",
+      "target": "BS-HZ-140",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-01",
+      "target": "BS-NB-101",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-01",
+      "target": "BS-NB-102",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-01",
+      "target": "BS-NB-103",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-01",
+      "target": "BS-NB-104",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-01",
+      "target": "BS-NB-105",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-01",
+      "target": "BS-NB-106",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-01",
+      "target": "BS-NB-107",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-01",
+      "target": "BS-NB-108",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-01",
+      "target": "BS-NB-109",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-01",
+      "target": "BS-NB-110",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-02",
+      "target": "BS-NB-111",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-02",
+      "target": "BS-NB-112",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-02",
+      "target": "BS-NB-113",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-02",
+      "target": "BS-NB-114",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-02",
+      "target": "BS-NB-115",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-02",
+      "target": "BS-NB-116",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-02",
+      "target": "BS-NB-117",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-02",
+      "target": "BS-NB-118",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-02",
+      "target": "BS-NB-119",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-NB-02",
+      "target": "BS-NB-120",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-WZ-01",
+      "target": "BS-WZ-101",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-WZ-01",
+      "target": "BS-WZ-102",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-WZ-01",
+      "target": "BS-WZ-103",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-WZ-01",
+      "target": "BS-WZ-104",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-WZ-01",
+      "target": "BS-WZ-105",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-WZ-01",
+      "target": "BS-WZ-106",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-WZ-01",
+      "target": "BS-WZ-107",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-WZ-01",
+      "target": "BS-WZ-108",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-WZ-01",
+      "target": "BS-WZ-109",
+      "relation": "access"
+    },
+    {
+      "source": "OLT-WZ-01",
+      "target": "BS-WZ-110",
+      "relation": "access"
+    }
+  ]
+}

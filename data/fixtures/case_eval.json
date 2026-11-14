@@ -1,0 +1,8 @@
+[
+  {"cause_type": "FIBER_CUT", "symptoms": "传输链路中断 OLT 批量离线 基站退服 CRC 错误率上升 LOS", "expected": "CASE-001"},
+  {"cause_type": "POWER_FAILURE", "symptoms": "市电中断 蓄电池放电 OLT 离线 基站批量退服", "expected": "CASE-002"},
+  {"cause_type": "SIGNALING_OVERLOAD", "symptoms": "信令过载 CPU 利用率高 呼叫建立失败 SCTP 重传", "expected": "CASE-003"},
+  {"cause_type": "OPTICAL_DEGRADATION", "symptoms": "CRC 错误率上升 误码率上升 光功率下降 链路抖动", "expected": "CASE-004"},
+  {"cause_type": "OVERHEATING", "symptoms": "设备温度高 风扇转速异常 高温告警", "expected": "CASE-005"},
+  {"cause_type": "CONFIG_CHANGE", "symptoms": "配置变更 业务抖动 参数调整 告警突增", "expected": "CASE-006"}
+]

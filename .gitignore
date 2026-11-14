@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+.token
+
+# Runtime data / caches
+data/*.db
+data/*.db-journal
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.log
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
