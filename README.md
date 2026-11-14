@@ -11,9 +11,11 @@
 
 核心目标：把“几百条告警”变成“几起可处置的事件”，并且每一起来源、影响范围、判断依据都能追溯。
 
-![NOC 值班总览](docs/screenshots/noc-overview.png)
+<p align="center"><a href="docs/screenshots/noc-overview.png"><img src="docs/screenshots/noc-overview.png" alt="NOC 值班总览" width="900"></a></p>
 
-![拓扑视图](docs/screenshots/topology-view.png)
+<p align="center"><a href="docs/screenshots/topology-view.png"><img src="docs/screenshots/topology-view.png" alt="拓扑视图" width="900"></a></p>
+
+<p align="center"><a href="docs/screenshots/noc-overview.png">查看 NOC 总览原图</a> · <a href="docs/screenshots/topology-view.png">查看拓扑视图原图</a></p>
 
 > 告警、拓扑与案例均为合成数据，用于工程评估；处置步骤需结合现场确认，不构成实际操作指令。
 
@@ -40,36 +42,11 @@ TelecomAgent 用“拓扑 + 时间窗 + 规则 + 案例”做压缩和定位，L
 
 ## 架构
 
-```mermaid
-flowchart LR
-    U[值班员 / 运维系统] --> UI[Streamlit NOC 控制台]
-    U --> API[FastAPI]
-    UI --> S[OpsService]
-    API --> S
-    S --> G[LangGraph 分析工作流]
-    G --> N[告警标准化]
-    G --> C[拓扑压缩]
-    G --> D[根因定位]
-    G --> R[案例检索]
-    G --> P[派单 / 人工复核]
-    C --> T[(拓扑图)]
-    R --> K[(故障案例库)]
-    G --> DB[(SQLite)]
-    G -. 可选 .-> LLM[LLM Client]
-```
+<p align="center"><a href="docs/diagrams/architecture.svg"><img src="docs/diagrams/architecture.svg" alt="architecture" width="960"></a></p>
 
 ## 工作流
 
-```mermaid
-flowchart TD
-    A[load_alarms<br/>接入与去重] --> B[compress_alarms<br/>时间窗 + 拓扑压缩]
-    B --> C[diagnose<br/>根因与影响面]
-    C --> D[assess<br/>严重度 / 派单 / 复核判断]
-    D -->|全部高置信度| E[dispatch<br/>生成派单]
-    D -->|存在低置信度| F[human_review<br/>转人工复核]
-    E --> G[save_run<br/>SQLite]
-    F --> G
-```
+<p align="center"><a href="docs/diagrams/workflow.svg"><img src="docs/diagrams/workflow.svg" alt="workflow" width="960"></a></p>
 
 每个节点记录耗时与摘要，控制台可以展开“分析轨迹”查看。
 
