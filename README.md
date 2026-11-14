@@ -150,6 +150,7 @@ cd web
 npm install
 npm run build
 cd ..
+python scripts/seed_demo.py
 uvicorn app.main:app --reload
 ```
 
@@ -229,7 +230,8 @@ telecom-agent/
 │   └── fixtures/               # 评估标签
 ├── scripts/
 │   ├── generate_sample_data.py
-│   └── evaluate.py
+│   ├── evaluate.py
+│   └── seed_demo.py
 ├── web/                        # TypeScript + React NOC 大屏
 │   ├── src/App.tsx
 │   ├── src/api.ts
