@@ -35,3 +35,7 @@ Thumbs.db
 web/node_modules/
 web/dist/
 web/.vite/
+
+# Node alarm gateway
+gateway/node_modules/
+gateway/dist/

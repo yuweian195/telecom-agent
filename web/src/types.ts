@@ -71,3 +71,27 @@ export interface RunListItem {
   compression_ratio: number;
   overall_severity: Severity;
 }
+
+
+export interface LiveAlarm {
+  alarm_id: string;
+  alarm_time: string;
+  ne_id: string;
+  ne_name: string;
+  ne_type: string;
+  alarm_type: string;
+  severity: Severity;
+  description: string;
+  region: string;
+  vendor: string;
+}
+
+export interface LiveAnalysis {
+  run_id: string;
+  total_alarms: number;
+  cluster_count: number;
+  compression_ratio: number;
+  overall_severity: Severity;
+  review_required: boolean;
+  received_at: string;
+}

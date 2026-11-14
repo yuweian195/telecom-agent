@@ -9,6 +9,17 @@ services:
     volumes:
       - ./data:/app/data
 
+  gateway:
+    build: ./gateway
+    ports:
+      - "8081:8081"
+    environment:
+      OPS_API_URL: http://api:8000
+    volumes:
+      - ./data:/app/data:ro
+    depends_on:
+      - api
+
   ui:
     build: .
     command: streamlit run ui/streamlit_app.py --server.address 0.0.0.0 --server.port 8501

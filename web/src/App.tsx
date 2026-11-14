@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { fetchLatestRun } from "./api";
-import type { AlarmCluster, OpsRun, Severity, TopologyNode } from "./types";
+import { connectAlarmStream } from "./live";
+import type { AlarmCluster, LiveAlarm, LiveAnalysis, OpsRun, Severity, TopologyNode } from "./types";
 
 const REFRESH_SECONDS = 20;
 
@@ -85,6 +86,9 @@ export default function App() {
   const [countdown, setCountdown] = useState(REFRESH_SECONDS);
   const [updatedAt, setUpdatedAt] = useState<Date | null>(null);
   const [region, setRegion] = useState("杭州");
+  const [liveAlarms, setLiveAlarms] = useState<LiveAlarm[]>([]);
+  const [liveStatus, setLiveStatus] = useState<"connecting" | "online" | "offline">("connecting");
+  const [liveAnalysis, setLiveAnalysis] = useState<LiveAnalysis | null>(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -113,6 +117,19 @@ export default function App() {
     }, 1000);
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(
+    () =>
+      connectAlarmStream({
+        onAlarm: (alarm) => setLiveAlarms((current) => [alarm, ...current].slice(0, 8)),
+        onAnalysis: (analysis) => {
+          setLiveAnalysis(analysis);
+          void load();
+        },
+        onStatus: setLiveStatus,
+      }),
+    [load],
+  );
 
   const incidents = run?.clusters.filter((item) => item.cause_type !== "NOISE") ?? [];
   const noise = run?.clusters.filter((item) => item.cause_type === "NOISE") ?? [];
@@ -219,6 +236,37 @@ export default function App() {
           </div>
         </section>
       </main>
+
+      <section className="panel live-panel">
+        <div className="panel-head">
+          <span>LIVE ALARM FEED / WS</span>
+          <span>
+            {liveStatus === "online" ? "STREAM ONLINE" : liveStatus === "offline" ? "GATEWAY OFFLINE" : "CONNECTING"}
+            {liveAnalysis
+              ? ` · RUN ${liveAnalysis.run_id.slice(0, 8)} · ${liveAnalysis.cluster_count} CLUSTERS`
+              : ""}
+          </span>
+        </div>
+        <div className="live-feed">
+          {liveStatus !== "online" && (
+            <div className="live-offline">
+              实时网关未连接。启动 <code>gateway</code> 后会自动接入：<code>cd gateway && npm run dev</code>
+            </div>
+          )}
+          {liveStatus === "online" && liveAlarms.length === 0 && (
+            <div className="live-offline">等待告警流…</div>
+          )}
+          {liveAlarms.map((alarm, index) => (
+            <div className="live-row" key={`${alarm.alarm_id}-${index}`}>
+              <span className={`sev sev-${alarm.severity}`}>{alarm.severity}</span>
+              <span className="live-time">{time(alarm.alarm_time)}</span>
+              <span className="live-ne">{alarm.ne_name}</span>
+              <span className="live-type">{alarm.alarm_type}</span>
+              <span className="live-desc">{alarm.description}</span>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="bottom-grid">
         <div className="panel summary-panel">

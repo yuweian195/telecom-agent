@@ -19,3 +19,4 @@
 - Docker Compose、GitHub Actions CI、架构文档与截图。
 - TypeScript + React 19 NOC 大屏（Vite 构建，FastAPI 静态挂载，20 秒自动刷新）。
 - CI 增加 TypeScript 构建检查。
+- TypeScript / Node 实时告警网关：CSV 回放、批量调用 Python 分析、WebSocket 推送大屏。

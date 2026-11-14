@@ -17,9 +17,11 @@
 
 <p align="center"><a href="docs/screenshots/topology-view.png"><img src="docs/screenshots/topology-view.png" alt="拓扑视图" width="900"></a></p>
 
+<p align="center"><a href="docs/screenshots/noc-live-feed.png"><img src="docs/screenshots/noc-live-feed.png" alt="实时告警流" width="900"></a></p>
+
 <p align="center"><a href="docs/screenshots/noc-wallboard.png"><img src="docs/screenshots/noc-wallboard.png" alt="TypeScript NOC 大屏" width="900"></a></p>
 
-<p align="center"><a href="docs/screenshots/noc-overview.png">查看 NOC 总览原图</a> · <a href="docs/screenshots/topology-view.png">查看拓扑视图原图</a> · <a href="docs/screenshots/noc-wallboard.png">查看 TypeScript 大屏原图</a></p>
+<p align="center"><a href="docs/screenshots/noc-overview.png">查看 NOC 总览原图</a> · <a href="docs/screenshots/topology-view.png">查看拓扑视图原图</a> · <a href="docs/screenshots/noc-wallboard.png">查看 TypeScript 大屏原图</a> · <a href="docs/screenshots/noc-live-feed.png">查看实时告警流原图</a></p>
 
 > 告警、拓扑与案例均为合成数据，用于工程评估；处置步骤需结合现场确认，不构成实际操作指令。
 
@@ -29,6 +31,7 @@
 |---|---|
 | Agent / API | Python 3.11、FastAPI、LangGraph |
 | 前端 | TypeScript 5、React 19、Vite、Streamlit |
+| 实时接入 | TypeScript / Node、WebSocket、批量转发 |
 | 数据处理 | 拓扑关联、时间窗压缩、规则引擎 |
 | 存储 | SQLite（WAL 模式） |
 
@@ -52,6 +55,7 @@ TelecomAgent 用“拓扑 + 时间窗 + 规则 + 案例”做压缩和定位，L
 - **派单建议**：按严重度与时间排序，生成“先做什么”的处置清单。
 - **NOC 值班台**：Streamlit 深色控制台，包含告警分析、拓扑视图、案例库与历史记录。
 - **TypeScript NOC 大屏**：React + Vite 只读大屏，自动刷新最新分析结果，适合值班室展示。
+- **实时告警流网关**：Node/TypeScript 持续消费 CSV 告警，批量调用 Python 分析，并通过 WebSocket 推送大屏。
 - **完整工程化**：FastAPI、SQLite、pytest、Ruff、Docker Compose、GitHub Actions。
 
 ## 架构
@@ -156,6 +160,16 @@ uvicorn app.main:app --reload
 
 打开 `http://127.0.0.1:8000/wallboard/`。开发模式可运行 `npm run dev`（默认连接 `http://127.0.0.1:8000`）。
 
+另开一个终端启动实时告警流网关：
+
+```bash
+cd gateway
+npm install
+npm run dev
+```
+
+网关会持续读取 `data/alarms/incident_day.csv`，每 20 条调用一次 `/ops/analyze`，并把结果通过 `ws://127.0.0.1:8081/ws/alarms` 推给大屏。
+
 单独启动 API：
 
 ```bash
@@ -235,8 +249,13 @@ telecom-agent/
 ├── web/                        # TypeScript + React NOC 大屏
 │   ├── src/App.tsx
 │   ├── src/api.ts
+│   ├── src/live.ts             # WebSocket 实时告警
 │   ├── src/styles.css
 │   └── package.json
+├── gateway/                    # TypeScript / Node 实时告警网关
+│   ├── src/server.ts
+│   ├── package.json
+│   └── Dockerfile
 ├── tests/                      # 21 个 Python 测试
 ├── reports/evaluation.md
 ├── docs/architecture.md
@@ -256,7 +275,7 @@ telecom-agent/
 
 ## 项目状态
 
-当前版本为完整可运行的实现：Python 服务负责告警接入、拓扑压缩、根因定位与派单；TypeScript/React 大屏负责值班展示。两套构建与 CI 均已通过，仓库中的功能可直接运行。
+当前版本为完整可运行的实现：Python 服务负责压缩、根因与派单；TypeScript/React 大屏负责展示；Node 网关负责实时告警接入与分析触发。三套构建与 CI 均已通过，仓库中的功能可直接运行。
 
 ## 工程边界
 
